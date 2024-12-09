@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body contenteditable="">
+        <button onclick="c=100">Generate more</button>
+        <div style="display:flex;flex-flow:column nowrap;"></div>
+        <script>
+            var c = 100
+            f=()=>{
+                requestAnimationFrame(f)
+                if (c<0){
+                    return
+                }
+                c--
+                let x = document.querySelectorAll("div")
+                let e = x[Math.floor(Math.random()*x.length)]
+                let a = document.createElement("div")
+                a.style.display = "flex"
+                a.style.flexFlow = ["column nowrap","row nowrap","row wrap"][Math.floor(Math.random()*3)]
+                a.style.border = "1px solid black"
+                a.style.flexGrow = Math.random()
+                a.style.padding = "5px"
+                e.appendChild(a)
+            }
+            f()
+        </script>
+    </body>
+</html>
